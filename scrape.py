@@ -193,7 +193,7 @@ def generateDictionary(urls, mainpage):
             rowList = list(filter(None, rowList))
             rowList.append('_')
         
-            if 'APCGWSMASGraupner'.find(rowList[0]) == -1:
+            if 'APCGWSMASGraupnerHQ'.find(rowList[0]) == -1:
                 continue
                 
 
@@ -248,7 +248,10 @@ def generateDictionary(urls, mainpage):
     
     if _404 > 0:
         print('Info: ' + str(_404) + ' 404 errors encountered')
-        
+    
+    if _404 + len(dict) < len(urls):
+        print('Info: ' + str(len(urls) - _404 - len(dict)) + ' product pages missing datasheet links')
+    
     print('Finished with ' + str(len(dict)) + ' motor datasheets read')
         
     return dict
@@ -271,7 +274,7 @@ def testCase():
     filename = filename + '.json'
 
     with open(filename, "w") as outfile:
-        json.dump(data, outfile)
+        json.dump(data, outfile, indent=4)
     
 testCase()
 
