@@ -1,0 +1,1 @@
+Program scrapes innov8tivedesigns.com brushless motors and compiles a .json file with specifications and propeller details.
